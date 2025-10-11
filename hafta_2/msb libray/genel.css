@@ -1,0 +1,717 @@
+/* GENEL AYARLAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0b0b0f;
+    color: #f4f4f9;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    background-color: #1e1e26;
+    color: #f4f4f9;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(155, 89, 182, 0.25);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height:50px;
+}
+
+.logo h1 {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: #b26aff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #f4f4f9;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #b26aff;
+}
+
+/* HERO SECTION */
+.hero-section {
+    height: 75vh;
+    background: linear-gradient(rgba(27, 0, 43, 0.7), rgba(11, 0, 20, 0.7)), #1e1e26;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4f4f9;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.btn {
+    background-color: #9b59b6;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #b26aff;
+}
+
+/* FEATURES */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 10%;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: #1e1e26;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(178, 106, 255, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+}
+
+.feature-card h3 {
+    color: #b26aff;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #1e1e26;
+    color: #f4f4f9;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    margin-top: 50px;
+}
+
+/* RESPONSIVE TASARIM */
+@media(max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* HAKKIMIZDA SAYFASI */
+.page-content {
+    padding: 60px 10%;
+}
+
+.about-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.about-section h2 {
+    color: #b26aff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #ddd;
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+.about-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.about-card {
+    background: #1e1e26;
+    width: 300px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(178, 106, 255, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+}
+
+.about-card h3 {
+    color: #b26aff;
+    margin-bottom: 10px;
+}
+
+/* MİSYON & VİZYON SAYFASI */
+.mission-vision-section {
+    text-align: center;
+    padding: 60px 10%;
+}
+
+.mission-vision-section h2 {
+    font-size: 2rem;
+    color: #b26aff;
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    color: #ddd;
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+}
+
+.mv-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.mv-card {
+    background: #1e1e26;
+    width: 400px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(178, 106, 255, 0.1);
+    transition: transform 0.3s;
+}
+
+.mv-card:hover {
+    transform: translateY(-8px);
+}
+
+.mv-card h3 {
+    color: #b26aff;
+    margin-bottom: 15px;
+}
+
+.mv-card p {
+    color: #ddd;
+    line-height: 1.6;
+}
+
+.mission {
+    border-top: 6px solid #9b59b6;
+}
+
+.vision {
+    border-top: 6px solid #b26aff;
+}
+
+/* İLETİŞİM SAYFASI */
+.contact-section {
+    text-align: center;
+    padding: 60px 10%;
+}
+
+.contact-section h2 {
+    color: #b26aff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.contact-form {
+    background: #1e1e26;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(155, 89, 182, 0.15);
+    width: 400px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #b26aff;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #0b0b0f;
+    color: #f4f4f9;
+}
+
+.contact-info {
+    max-width: 350px;
+    text-align: left;
+}
+
+.contact-info h3 {
+    color: #b26aff;
+    margin-top: 20px;
+}
+
+.contact-info a {
+    color: #b26aff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Form butonları */
+button.btn {
+    background-color: #9b59b6;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button.btn:hover {
+    background-color: #b26aff;
+}
+
+/* Login Sayfası */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background: linear-gradient(135deg, #1e1e26 0%, #0b0b0f 100%);
+}
+
+.login-btn {
+    background-color: #b26aff;   /* Navbar & tema rengine uygun mor ton */
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%; /* Form genişliği kadar */
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #9b59b6;   /* Hover’da biraz koyulaşsın */
+    transform: scale(1.03);
+}
+
+.login-btn:active {
+    background-color: #7a33d8;   /* Tıklayınca daha koyu mor */
+    transform: scale(0.97);
+}
+
+
+.login-card {
+    width: 350px;
+    background-color: #1e1e26;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(155, 89, 182, 0.15);
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-bottom: 25px;
+    color: #b26aff;
+}
+
+.login-card label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    color: #f4f4f9;
+    font-weight: 600;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #0b0b0f;
+    color: #f4f4f9;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.login-card input:focus {
+    border-color: #b26aff;
+}
+
+.login-options a {
+    color: #b26aff;
+}
+
+/* Admin Panel */
+.admin-sidebar {
+    background: #1e1e26;
+    color: #f4f4f9;
+}
+
+.admin-profile h3 {
+    color: #b26aff;
+}
+
+.admin-menu li.active,
+.admin-menu li:hover {
+    background: rgba(178, 106, 255, 0.1);
+    color: #b26aff;
+}
+
+.card {
+    background: #1e1e26;
+    box-shadow: 0 8px 20px rgba(155, 89, 182, 0.1);
+}
+
+.card h4 {
+    color: #b26aff;
+}
+
+.card p {
+    color: #f4f4f9;
+}
+
+.btn {
+    background: #9b59b6;
+}
+.btn:hover {
+    background: #b26aff;
+}
+.btn.danger {
+    background: #ff4d6d;
+}
+
+/* Admin Container */
+.admin-container {
+    display: flex;
+    min-height: 90vh;
+    background: #0b0b0f;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    width: 250px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+/* Admin Profile */
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Admin Menu */
+.admin-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+}
+
+.admin-menu li {
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.admin-menu li.active,
+.admin-menu li:hover {
+    background: rgba(178, 106, 255, 0.1);
+    color: #b26aff;
+}
+
+/* Admin Main Section */
+.admin-main {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header-actions button {
+    margin-left: 10px;
+}
+
+/* Panel */
+.panel {
+    background: #1e1e26;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(178,106,255,0.1);
+}
+
+.panel-header h3 {
+    color: #b26aff;
+    margin-bottom: 5px;
+}
+
+.panel-header .muted {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Panel Body */
+.panel-body {
+    margin-top: 15px;
+}
+
+.panel-body.two-col {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Form Row */
+.form-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Table Styles */
+.table-wrap {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #f4f4f9;
+}
+
+.table th, .table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+}
+
+.table th {
+    color: #b26aff;
+    background-color: #1e1e26;
+}
+
+/* Table Buttons */
+.ops .btn {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+}
+
+.btn.ghost {
+    background: transparent;
+    color: #b26aff;
+    border: 1px solid #b26aff;
+}
+
+.btn.ghost:hover {
+    background: rgba(178,106,255,0.1);
+}
+
+/* Small Buttons */
+.btn.small {
+    padding: 5px 12px;
+    font-size: 0.85rem;
+}
+
+/* Announcements List */
+.ann-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.ann-list li {
+    background: #1e1e26;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.ann-ops {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Form Başlıkları */
+.panel-form h4 {
+    color: #b26aff;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+/* Form Label */
+.panel-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #f4f4f9;
+}
+
+/* Form Input ve Textarea */
+.panel-form input,
+.panel-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #0b0b0f;
+    color: #f4f4f9;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.panel-form input:focus,
+.panel-form textarea:focus {
+    border-color: #b26aff;
+    box-shadow: 0 0 8px rgba(178, 106, 255, 0.4);
+}
+
+/* Panel Başlıkları */
+.panel h3 {
+    color: #b26aff;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+}
+
+/* Panel Açıklama */
+.panel p.muted {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+/* Table İçerik */
+.table td {
+    color: #ddd;
+}
+
+/* Placeholder Renkleri */
+input::placeholder,
+textarea::placeholder {
+    color: #888;
+}
+
+/* Duyuru ve Kullanıcı Listeleri İçin */
+.users-controls input,
+#bookSearch,
+#userSearch {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #0b0b0f;
+    color: #f4f4f9;
+    margin-bottom: 10px;
+}
+
+.users-controls input:focus,
+#bookSearch:focus,
+#userSearch:focus {
+    border-color: #b26aff;
+    box-shadow: 0 0 8px rgba(178, 106, 255, 0.4);
+}
