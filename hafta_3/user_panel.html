@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Paneli | IMS Library</title>
+    <link rel="stylesheet" href="genel.css">
+    <link rel="shortcut icon" type="image/png" href="favicon.ico">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <img src="logo.png" alt="IMS Library Logo">
+        <h1>IMS Library</h1>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a href="login.html">Çıkış Yap</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="page-content">
+    <section class="user-panel-section">
+        <h2>Kitap Kataloğu</h2>
+        <p>Aşağıdaki listeden mevcut kitaplarımızı inceleyebilir ve kiralama işlemi yapabilirsiniz.</p>
+
+        <div class="table-wrap">
+            <table id="booksTable" class="table">
+                <thead>
+                <tr>
+                    <th>Başlık</th>
+                    <th>Yazar</th>
+                    <th>Yayın Yılı</th>
+                    <th>İşlemler</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 IMS Library | İstanbul Medeniyet Üniversitesi</p>
+</footer>
+
+<script>
+    const booksTbody = document.querySelector('#booksTable tbody');
+    let books = [];
+
+    // HTML'i güvenli hale getirmek için yardımcı fonksiyon
+    function escapeHtml(s) {
+        if (!s) return '';
+        return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+    }
+
+    // Tabloyu gelen verilere göre dolduran fonksiyon
+    function renderBooks() {
+        if (books.length === 0) {
+            booksTbody.innerHTML = '<tr><td colspan="4">Gösterilecek kitap bulunamadı.</td></tr>';
+            return;
+        }
+
+        booksTbody.innerHTML = ''; // Tabloyu temizle
+        books.forEach(book => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${escapeHtml(book.name)}</td>
+                <td>${escapeHtml(book.author)}</td>
+                <td>${escapeHtml(book.year || '—')}</td>
+                <td class="ops">
+                    <button data-id="${book.id}" class="btn small rent-book">Kirala</button>
+                </td>
+            `;
+            booksTbody.appendChild(tr);
+        });
+    }
+
+    // Sunucudan (get_books.php) kitap verilerini çeken fonksiyon
+    async function fetchBooks() {
+        booksTbody.innerHTML = '<tr><td colspan="4">Kitaplar yükleniyor...</td></tr>';
+        try {
+            const response = await fetch('get_books.php');
+            if (!response.ok) {
+                throw new Error('Veri çekilemedi, ağ hatası.');
+            }
+            const data = await response.json();
+            books = data; // Gelen veriyi global `books` dizisine ata
+            renderBooks(); // Veri geldikten sonra tabloyu render et
+        } catch (error) {
+            console.error('Kitapları çekerken hata oluştu:', error);
+            booksTbody.innerHTML = `<tr><td colspan="4" style="color: red;">Hata: Veriler yüklenemedi.</td></tr>`;
+        }
+    }
+
+    // "Kirala" butonlarına tıklama olayını dinle
+    booksTbody.addEventListener('click', function(event) {
+        // Eğer tıklanan element 'rent-book' class'ına sahip bir butonsa
+        if (event.target.matches('.rent-book')) {
+            // İstenen pop-up mesajını göster
+            alert('Bu özellik yakında eklenecektir.');
+        }
+    });
+
+    // Sayfa ilk yüklendiğinde kitapları çek
+    fetchBooks();
+</script>
+
+</body>
+</html>
