@@ -9,3 +9,5 @@ Hafta-2 -> Kütüphane Yönetim Sistemi Web sitesi
 Hafta-3 -> Kütüphane Yönetim Sistemi Web sitesi için kullanıcı girişleri ve Database entegrasyonu
 
 Hafta-4 -> Kütüphane Yönetim Sistemi Web sitesi için kitap güncelleme (hafta_3'te de mevcuttu)
+
+Hafta-5 -> Öğrenci Yönetim Sistemi (Tek Tablolu CRUD), .NET'teki IActionResult mantığına karşılık gelen Spring Boot Controller metotları kullanıldı.
