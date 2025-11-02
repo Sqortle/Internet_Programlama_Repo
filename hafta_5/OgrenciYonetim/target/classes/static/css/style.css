@@ -1,0 +1,135 @@
+/* style.css - Ogrenci Yönetim Sistemi için GENEL.CSS temasına entegrasyon */
+
+/* 1. GENEL Arka Plan ve Metin Rengi */
+body {
+    background-color: #0b0b0f; /* genel.css'teki ana arka plan */
+    color: #f4f4f9; /* genel.css'teki ana metin rengi */
+}
+
+.container {
+    margin-top: 50px;
+}
+
+/* Card ve Panel Arka Planları */
+.card, .panel {
+    background-color: #1e1e26; /* genel.css'teki card ve panel arka planı */
+    border: 1px solid #333;
+    box-shadow: 0 4px 10px rgba(178, 106, 255, 0.1);
+}
+
+/* 2. Başlık ve Vurgu Rengi */
+.card-header {
+    background-color: #1e1e26; /* Navbar/Card arka planı */
+    color: #b26aff; /* Canlı Mor Vurgu Rengi */
+    font-weight: bold;
+    border-bottom: 2px solid #563d7c;
+}
+
+/* --- TABLO STİLLERİ --- */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #f4f4f9; /* Metin rengi */
+}
+
+/* Tablo Başlığı (Mor Vurgu) */
+.table-dark thead, .table-dark th {
+    color: #b26aff !important; /* Mor renk */
+    background-color: #1e1e26 !important;
+    border-bottom: 1px solid #555;
+    text-align: left;
+}
+
+/* Tablo İçerik Satırları */
+.table td {
+    color: #ddd; /* Açık gri metin */
+    border-bottom: 1px solid #333;
+}
+
+/* Çizgili Satır Efekti (Striped) */
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #1e1e26; /* Daha koyu arka plan */
+}
+.table-striped > tbody > tr:nth-of-type(even) > * {
+    background-color: #343a40; /* Biraz daha açık arka plan */
+}
+
+
+/* --- BUTON STİLLERİ ve HOVER EFEKTLERİ --- */
+
+/* Yeni Ekle (Primary), Kaydet (Success) ve Düzenle (Info) için Ortak Mor Stil */
+.btn-primary, .btn-success, .btn-info {
+    background-color: #9b59b6; /* Ana Buton Rengi */
+    border-color: #9b59b6;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .btn-success:hover, .btn-info:hover {
+    background-color: #b26aff; /* Hover Rengi */
+    border-color: #b26aff;
+    color: white;
+    transform: translateY(-1px); /* Hafif kalkma efekti */
+    box-shadow: 0 4px 8px rgba(155, 89, 182, 0.4);
+}
+
+/* Sil Butonu (Custom Delete) */
+.btn-custom-delete {
+    background-color: #ff4d6d; /* Kırmızı (genel.css danger rengine yakın) */
+    color: white;
+    border-color: #ff4d6d;
+    transition: all 0.3s ease;
+}
+
+.btn-custom-delete:hover {
+    background-color: #cc0033; /* Daha koyu kırmızı hover */
+    border-color: #cc0033;
+    transform: translateY(-1px);
+}
+
+/* --- FORM STİLLERİ --- */
+
+/* Form Input ve Textarea */
+.form-control {
+    background-color: #0b0b0f;
+    color: #f4f4f9;
+    border: 1px solid #555;
+    transition: border 0.3s;
+}
+
+.form-control:focus {
+    background-color: #0b0b0f;
+    color: #f4f4f9;
+    border-color: #b26aff;
+    box-shadow: 0 0 8px rgba(178, 106, 255, 0.4);
+}
+
+/* Form Label */
+.form-label {
+    color: #b26aff; /* Mor label rengi */
+    font-weight: 600;
+}
+
+/* Placeholder Renkleri */
+input::placeholder,
+textarea::placeholder {
+    color: #888;
+}
+
+/* Mesajlar */
+.alert-success {
+    color: #c3e6cb;
+    background-color: #1e1e26;
+    border-color: #28a745;
+}
+.alert-danger {
+    color: #f5c6cb;
+    background-color: #1e1e26;
+    border-color: #dc3545;
+}
+.alert-warning {
+    color: #ffeeba;
+    background-color: #1e1e26;
+    border-color: #ffc107;
+}
