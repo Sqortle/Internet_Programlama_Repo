@@ -10,7 +10,7 @@ public class Ogrenci {
     private String soyad;
     private int ogrenciNo;
 
-    // --- Elle Yazılan GETTER ve SETTER Metotları ---
+    // --- Elle Yazılan GETTER ve SETTER Metotları(lombokta sıkıntı çıktı) ---
 
     public Long getId() {
         return id;
@@ -40,5 +40,4 @@ public class Ogrenci {
     public void setOgrenciNo(int ogrenciNo) {
         this.ogrenciNo = ogrenciNo;
     }
-    // ----------------------------------------------------
 }
