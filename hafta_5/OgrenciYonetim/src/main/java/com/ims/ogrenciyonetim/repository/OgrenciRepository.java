@@ -17,8 +17,6 @@ public class OgrenciRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    // --- RowMapper: Veritabanı satırını (Row) Ogrenci nesnesine (Object) dönüştürme metodu ---
-    // (ORM'siz manuel eşleme - Tıpkı Jpa'nın arkada yaptığı gibi)
     private RowMapper<Ogrenci> ogrenciRowMapper = new RowMapper<Ogrenci>() {
         @Override
         public Ogrenci mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -36,7 +34,6 @@ public class OgrenciRepository {
     // 1. R (Read) - Tümünü Bulma
     public List<Ogrenci> findAll() {
         String sql = "SELECT id, ad, soyad, ogrenci_no FROM OGRENCI";
-        // Sorguyu çalıştırır ve her satırı RowMapper ile Ogrenci nesnesine dönüştürür.
         return jdbcTemplate.query(sql, ogrenciRowMapper);
     }
 
@@ -47,25 +44,19 @@ public class OgrenciRepository {
             Ogrenci ogrenci = jdbcTemplate.queryForObject(sql, ogrenciRowMapper, id);
             return Optional.ofNullable(ogrenci);
         } catch (org.springframework.dao.EmptyResultDataAccessException e) {
-            return Optional.empty(); // Kayıt bulunamazsa boş Optional döner
+            return Optional.empty();
         }
     }
 
     // 3. C (Create) ve U (Update) - Kaydetme
-// OgrenciRepository.java içinde güncellenmiş save metodu
-// OgrenciRepository.java
     public Ogrenci save(Ogrenci ogrenci) {
-        // ID'si null VEYA ID'si 0L (Long'un default de?eri) olanlar yeni kay?tt?r.
-        if (ogrenci.getId() == null || ogrenci.getId() == 0L) { // <-- GÜNCELLENEN KISIM
+        if (ogrenci.getId() == null || ogrenci.getId() == 0L) { 
 
-            // Ekleme (INSERT)
             String sql = "INSERT INTO OGRENCI (ad, soyad, ogrenci_no) VALUES (?, ?, ?)";
             jdbcTemplate.update(sql, ogrenci.getAd(), ogrenci.getSoyad(), ogrenci.getOgrenciNo());
 
-            // JDBC ile eklenen kayd?n ID'sini manuel olarak geri almam?z gerekir (A?a??daki Not'a bak?n)
 
         } else {
-            // Düzenleme (UPDATE) - ID değeri mevcut
             String sql = "UPDATE OGRENCI SET ad = ?, soyad = ?, ogrenci_no = ? WHERE id = ?";
             jdbcTemplate.update(sql, ogrenci.getAd(), ogrenci.getSoyad(), ogrenci.getOgrenciNo(), ogrenci.getId());
         }
